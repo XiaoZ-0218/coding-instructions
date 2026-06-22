@@ -127,6 +127,7 @@ description: |
 | 🚀 | deploy | 部署相关 |
 | 🎨 | format | 代码格式化 |
 | 🏗️ | build | 构建系统/脚本修改 |
+| 🧹 | chore | 日常维护、清理、无关功能的杂项调整 |
 | 🔥 | remove | 删除代码/文件 |
 | 🚚 | move | 移动/重命名文件 |
 | ⏪ | revert | 回退更改 |
@@ -142,6 +143,7 @@ description: |
 🚧 wip: 购物车模块开发中
 ✅ test: 添加用户注册单元测试
 📦 deps: 安装 axios 依赖
+🧹 chore: 清理无用注释与日志
 ```
 
 ### AI 代理行为守则
