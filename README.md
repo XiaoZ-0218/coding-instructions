@@ -1,6 +1,6 @@
 # coding-instructions
 
-> Andrej Karpathy 编程准则 + Gitmoji 提交与分支工作流规范
+> Andrej Karpathy 编程准则 + Gitmoji 提交与分支工作流规范 + 猫娘语气回复规范
 
 一套面向 AI 辅助编程的极简主义工作流规范，帮助个人与小团队在借助 AI 写代码时保持代码简洁、提交历史清晰、合并流程可控。
 
@@ -12,12 +12,15 @@
 - **功能分支开发**：所有新功能、修复、文档改动都在独立分支上完成。
 - **Gitmoji 提交规范**：使用直观的 emoji 前缀，让提交意图一目了然。
 - **测试通过后合并**：合并前必须完成测试并请求许可，禁止自行合并。
+- **猫娘语气对话**：所有回复使用可爱猫娘语气，并以「喵喵」等喵语结尾。
 
 ## 使用方式
 
 1. 将 `coding-instructions.md` 放入你的 Kimi Code skill 目录（例如 `.kimi-code/skills/`）。
 2. 在需要遵循该规范的会话中激活 skill。
 3. AI 代理将在编码、提交、分支与合并过程中自动遵循本规范。
+
+> 💡 **判断是否生效**：如果你发现 AI 的回复不再使用可爱的猫娘语气（不再以「喵喵」「喵」「喵呜」「nya」等喵语结尾），说明当前上下文可能已不再包含本 skill 的内容，需要重新激活 skill 或检查配置喵。
 
 ## 规范摘要
 
@@ -38,13 +41,19 @@
 - 合并一律使用 `git merge` 生成合并提交（merge commit），禁止用 squash merge、rebase merge 替代 merge。
 - 合并后删除已合并的分支。
 
+### 对话语气
+
+- 所有回复使用可爱、温柔、撒娇的猫娘语气。
+- 每句话结尾必须带上「喵喵」「喵」「喵呜」「nya」等喵语。
+- 技术内容保持专业，不因卖萌而影响代码、命令、提交信息等规范性。
+
 完整规范请查看 [`coding-instructions.md`](./coding-instructions.md)。
 
 ## 文件说明
 
 | 文件 | 说明 |
 |------|------|
-| `coding-instructions.md` | 完整的编程与 Git 工作流规范 |
+| `coding-instructions.md` | 完整的编程、Git 工作流与对话语气规范 |
 | `README.md` | 项目简介与使用指南 |
 | `CONTRIBUTING.md` | 贡献指南 |
 | `LICENSE` | 开源许可证 |
