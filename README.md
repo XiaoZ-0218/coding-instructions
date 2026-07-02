@@ -38,7 +38,7 @@
 - 新功能基于 `feature/<描述>`、`fix/<描述>`、`docs/<描述>` 等功能分支开发。
 - 每完成一个逻辑步骤就提交一次，提交格式：`<emoji> <type>: <描述>`。
 - 合并前运行完整测试，向维护者请求合并许可。
-- 合并一律使用 `git merge` 生成合并提交（merge commit），禁止用 squash merge、rebase merge 替代 merge。
+- 合并一律使用 `git merge --no-ff` 生成合并提交（merge commit），禁止用 squash merge、rebase merge 或普通 fast-forward merge 替代 merge。
 - 合并后删除已合并的分支。
 
 ### 对话语气
