@@ -96,10 +96,6 @@ description: |
 
 #### 4. 合并回上游分支
 
-- **合并前，必须先向用户请求合并许可**，汇报功能分支的改动摘要和测试结果，等待用户明确同意后才能执行合并。
-- 获得用户许可后，先用 `git merge <上游分支>`（例如 `git merge main`）将上游分支最新代码同步到功能分支，处理可能的冲突。
-  - 此步骤**允许 Fast-forward**，让功能分支自然包含上游的最新提交即可喵。
-- 同步完成后，在上游分支中执行合并。
   - **禁止使用 `git rebase` 将功能分支合并回上游分支**。
   - 若上游分支是 `main` / `master` 等主分支，**必须显式使用 `--no-ff` 参数**：执行 `git merge --no-ff <feature-branch>`。当主分支没有新提交时，普通 `git merge` 会默认走 Fast-forward，导致无法生成合并节点，丢失分支历史。
   - 若上游分支是当前 `git worktree` 所对应的工作分支（非主分支），允许使用普通 `git merge <feature-branch>` 走 Fast-forward，也可显式加 `--no-ff`，由用户偏好决定喵。
