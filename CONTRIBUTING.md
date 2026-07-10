@@ -16,35 +16,35 @@
 
 ### 2. 提交 Pull Request
 
-1. Fork 本仓库并 clone 到本地。clone 后的目录即为 `main` 分支的默认 worktree。
-2. 在主 worktree 中同步 `main`：
+1. Fork 本仓库并 clone 到本地。
+2. 在本地仓库同步主分支：
    ```bash
    git pull origin main
    ```
-3. 为本次改动创建独立的 linked worktree，并同时创建功能分支：
+3. 从主分支切出功能分支：
    - 新增规范内容：
      ```bash
-     git worktree add -b feature/<简短描述> ../skill-coding-instructions-feature-<简短描述>
+     git checkout -b feature/<简短描述> main
      ```
    - 修复问题：
      ```bash
-     git worktree add -b fix/<简短描述> ../skill-coding-instructions-fix-<简短描述>
+     git checkout -b fix/<简短描述> main
      ```
    - 文档改进：
      ```bash
-     git worktree add -b docs/<简短描述> ../skill-coding-instructions-docs-<简短描述>
+     git checkout -b docs/<简短描述> main
      ```
-4. 进入新建的 worktree 目录，在功能分支上进行修改，每次只做一个逻辑改动。
+   
+   > 如果你是通过 `git worktree` 维护本仓库，请从对应 worktree 的上游分支切出功能分支，并在该 worktree 内完成开发。
+
+4. 在功能分支上进行修改，每次只做一个逻辑改动。
 5. 提交时遵循本项目的 Gitmoji 提交规范，详见 [`commit-messages.md`](./commit-messages.md)。
 6. 确保 Markdown 格式正确、链接可用。
 7. 向 `main` 分支发起 Pull Request，描述改动原因与影响范围。
-8. PR 合并后，清理已合并的 worktree 与分支：
+8. PR 合并后，删除已合并的功能分支：
    ```bash
-   git worktree remove ../skill-coding-instructions-<后缀>
    git branch -d <分支名>
    ```
-
-多个功能 worktree 可以并行存在，便于同时处理不同任务。
 
 ## 规范修改原则
 
