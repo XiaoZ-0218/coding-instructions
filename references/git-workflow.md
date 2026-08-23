@@ -61,19 +61,25 @@ git checkout -b feature/user-login <upstream-branch>
 3. Merge **only after explicit user approval**; never merge on your own.
 4. If CI/CD exists, wait for the pipeline to pass.
 
-## 4. Merging back to upstream
+## 4. Merging back to upstream (prefer rebase, never squash)
 
-1. If upstream has new commits: first `git merge <upstream>` on the feature branch (fast-forward allowed); resolve conflicts **on the feature branch**, then re-run tests.
-2. Check out upstream and merge:
-   - Upstream is `main`/`master`: **must** use `git merge --no-ff <feature-branch>` (never let default fast-forward drop the merge node).
-   - Upstream is a worktree branch (non-main): plain `git merge` or `--no-ff` is fine.
-3. **Never** use rebase / squash merge to bring a feature branch into upstream.
-4. Suggested merge commit title: `feat: complete xxx` in the same convention.
+Default flow: **rebase the feature branch onto upstream, then fast-forward merge** — keep every individual commit, no squash, no merge node.
 
-### Rebase only for catching up with upstream
-
-- With parallel feature branches and a moved upstream: you may `git rebase <upstream>` **on an unmerged feature branch** to stay linear.
-- **Never** use rebase instead of merge to land changes on upstream.
+0. **If the repo has a remote: prefer a Pull Request** instead of a local merge — push the feature branch and open a PR (e.g. `gh pr create`), let the user review and merge it there. Only merge locally when the user explicitly asks, or when there is no remote.
+1. On the feature branch, rebase onto the latest upstream:
+   ```bash
+   git fetch  # if a remote exists
+   git rebase <upstream-branch>
+   ```
+   Resolve conflicts **on the feature branch**, then re-run tests.
+   If the feature branch was already pushed to a remote, the rebase rewrites its history — push back with `git push --force-with-lease` (safe only for your own feature branch; never force-push shared branches).
+2. Check out upstream and fast-forward merge:
+   ```bash
+   git checkout <upstream-branch>
+   git merge --ff-only <feature-branch>
+   ```
+3. **Never** use squash merge (`--squash` / GitHub "Squash and merge"); each logical commit must survive intact. When merging a PR on the remote, choose **rebase merge** (or fast-forward), never squash.
+4. Only fall back to `git merge --no-ff` when the user explicitly asks for a merge node (e.g. preserving a release boundary).
 
 ## 5. Post-merge cleanup
 
@@ -89,4 +95,4 @@ git branch -d feature/user-login
 2. **Commit proactively** after every meaningful change; don't wait to be asked.
 3. User says "save progress / leave it" → `wip`.
 4. Before merging: full tests → report → **wait for permission**.
-5. Merging into main must use `--no-ff`.
+5. Merging: with a remote, prefer a Pull Request; otherwise `git rebase` onto upstream + `--ff-only`; never squash; `--no-ff` only when the user explicitly asks.

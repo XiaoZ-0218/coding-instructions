@@ -119,7 +119,7 @@ ln -s /path/to/coding-instructions ~/.claude/skills/coding-instructions
 - Cut `feature|fix|test|docs/<description>` from the current upstream
 - Commit after each logical step (format: `references/commit-messages.md`)
 - Run the full test suite before merging and ask the user for permission
-- Merge into main with `git merge --no-ff`; never substitute squash/rebase merges
+- With a remote, prefer opening a PR; local merges rebase onto upstream + `git merge --ff-only`; never squash
 - Delete merged feature branches
 
 ### Tone

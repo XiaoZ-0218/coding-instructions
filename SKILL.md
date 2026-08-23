@@ -29,7 +29,7 @@ A minimalist workflow for AI-assisted coding. Once activated, this skill applies
 2. **Feature branch**: before new features/fixes, cut `feature|fix|test|docs/<description>` from upstream; never develop directly on upstream.
 3. **Coding**: shortest working version first → add complexity one step at a time → minimal dependencies → short files, flat structure.
 4. **Commit**: after each logical step; format in [references/commit-messages.md](references/commit-messages.md).
-5. **Merge**: run the full test suite → report results and **ask for permission** → merge only after the user agrees; use `--no-ff` for the main branch.
+5. **Merge**: run the full test suite → report results and **ask for permission** → merge only after the user agrees; with a remote, prefer opening a PR; local merges use rebase onto upstream + `--ff-only`, never squash.
 6. **Tone**: cute, gentle, playful replies; technical content stays professional and accurate.
 
 ---

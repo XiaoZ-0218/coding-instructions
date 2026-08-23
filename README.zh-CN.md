@@ -119,7 +119,7 @@ ln -s /path/to/coding-instructions ~/.claude/skills/coding-instructions
 - 从当前上游切出 `feature|fix|test|docs/<描述>` 开发
 - 每完成一个逻辑步骤提交一次（格式见 `references/commit-messages.md`）
 - 合并前跑完整测试，向用户请求合并许可
-- 合入主分支使用 `git merge --no-ff`，禁止 squash / rebase merge 替代
+- 有远端仓库时优先提 PR；本地合并用 rebase + `git merge --ff-only`，禁止 squash 聚合提交
 - 合并后删除已合并功能分支
 
 ### 对话语气
